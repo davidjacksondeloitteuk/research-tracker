@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.database.database import get_db
 from app.database.models import User
-from app.database.schemas import UserCreate, UserLogin, UserResponse
+from app.database.schemas.user_schemas import UserCreate, UserLogin, UserResponse
 
 router = APIRouter(prefix="/api/users")
 
@@ -31,7 +31,7 @@ def verify_password(password: str, password_hash: str) -> bool:
         return False
 
 
-@router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED, tags=["users"])
 def register_user(payload: UserCreate, db: Session = Depends(get_db)) -> User:
     existing_user = db.scalar(select(User).where(User.username == payload.username))
     if existing_user:
@@ -41,6 +41,7 @@ def register_user(payload: UserCreate, db: Session = Depends(get_db)) -> User:
         username=payload.username,
         first_name=payload.first_name,
         last_name=payload.last_name,
+        profile_picture=payload.profile_picture,
         password_hash=hash_password(payload.password),
     )
     db.add(user)
@@ -55,7 +56,7 @@ def register_user(payload: UserCreate, db: Session = Depends(get_db)) -> User:
     return user
 
 
-@router.post("/login", response_model=UserResponse)
+@router.post("/login", response_model=UserResponse, tags=["users"])
 def login_user(payload: UserLogin, db: Session = Depends(get_db)) -> User:
     user = db.scalar(select(User).where(User.username == payload.username))
 

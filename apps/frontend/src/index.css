@@ -1,38 +1,99 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-.default-button {
-    @apply bg-blue-500 text-white rounded-full cursor-pointer;
+.main {
+    @apply w-full max-w-4xl mx-auto py-4 flex-1 flex flex-col gap-4;
 }
 
-.danger-button {
-    @apply bg-red-800 text-white rounded-full cursor-pointer;
+.page-section {
+    @apply my-2 h-[calc(100vh-7rem)];
 }
 
-.page-body {
-    @apply w-full max-w-4xl mx-auto p-4;
+/* Button Styles */
+
+.button-primary {
+    @apply px-4 py-2 bg-blue-500 text-white cursor-pointer;
 }
 
-.nav-link {
-    @apply text-black;
+.button-secondary {
+    @apply px-4 py-2 bg-white text-black border cursor-pointer;
 }
 
-.nav-link:hover {
-    @apply text-amber-400;
+.button-danger {
+    @apply px-4 py-2 bg-red-800 text-white cursor-pointer;
 }
 
-.nav-link-active {
-    @apply text-blue-400;
+/* Container Styles */
+
+.container-default {
+    @apply border bg-white p-2 shadow-sm;
 }
 
-/* Heading styles */
+.container-default-narrow {
+    @apply mx-auto max-w-xl border bg-white p-2 shadow-sm;
+}
+
+.container-sub {
+    @apply border bg-gray-100 p-2 shadow-sm;
+}
+
+/* Form Styles */
+.form-default {
+    @apply mx-auto max-w-xl w-full border bg-white p-2 shadow-sm flex flex-col gap-4;
+}
+
+label {
+    @apply text-sm font-medium text-slate-700;
+}
+
+.input-default {
+    @apply text-base px-4 py-2 border w-full bg-white;
+}
+
+/* Header Styles */
+
 h1 {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-semibold;
 }
 
 h2 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-semibold;
 }
 
 h3 {
-    @apply text-xl font-bold;
+    @apply text-lg font-semibold;
+}
+h4 {
+    @apply text-base font-semibold;
+}
+h5 {
+    @apply text-sm font-semibold;
+}
+h6 {
+    @apply text-xs font-semibold;
+}
+p {
+    @apply text-base font-normal;
+}
+small {
+    @apply text-xs text-gray-500;
+}
+
+/* Modal Styles */
+
+.modal-default {
+    @apply m-auto w-[min(28rem,calc(100%-2rem))] border p-6 shadow-xl backdrop:bg-black/50;
+}
+
+/* Navigation Styles */
+
+.nav-link {
+    @apply text-black text-lg font-semibold;
+}
+
+.nav-link:hover {
+    @apply text-amber-400 text-lg font-semibold;
+}
+
+.nav-link-active {
+    @apply text-blue-400 text-lg font-semibold;
 }

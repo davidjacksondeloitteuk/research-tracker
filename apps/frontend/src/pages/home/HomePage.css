@@ -1,9 +1,0 @@
-@import "tailwindcss";
-
-.list-container {
-    @apply border border-gray-500 rounded-3xl my-2 p-2 space-y-2;
-}
-
-.list-item-container {
-    @apply flex items-center justify-between px-4 py-2 bg-white/50 p-4 rounded-full;
-}

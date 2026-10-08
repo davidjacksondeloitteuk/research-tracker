@@ -103,7 +103,7 @@ SQLAlchemy table models live in `apps/backend/app/database/models.py`, and Alemb
 2. From `apps/backend`, generate a migration:
 
     ```bash
-    alembic revision --autogenerate -m "create notes table"
+    alembic revision --autogenerate -m "create notes table" --rev-id=yyyymmdd_vvvv
     ```
 
 3. Review the new file under `apps/backend/alembic/versions/`. Autogeneration is a starting point; confirm the operations and any data migration are correct.
